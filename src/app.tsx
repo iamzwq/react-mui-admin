@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { RouterProvider } from "react-router-dom";
 import { CssBaseline, ThemeProvider, useColorScheme } from "@mui/material";
 import Toast from "@/components/toast";
+import { useCheckVersion } from "@/hooks/use-check-version";
 import { router } from "@/router";
 import { theme } from "@/theme";
 
@@ -13,6 +14,14 @@ export default function App() {
   useEffect(() => {
     setState(systemMode || mode);
   }, [systemMode, mode]);
+
+  const hasNewVersion = useCheckVersion();
+
+  if (hasNewVersion) {
+    if (window.confirm("有新版本，是否更新？")) {
+      window.location.reload();
+    }
+  }
 
   return (
     <ThemeProvider theme={theme} disableTransitionOnChange>

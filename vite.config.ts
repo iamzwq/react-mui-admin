@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react-swc";
 import { defineConfig } from "vite";
 import { compression } from "vite-plugin-compression2";
 import svgr from "vite-plugin-svgr";
+import generateVersion from "./src/build/plugins/generate-version";
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -17,6 +18,7 @@ export default defineConfig({
       },
     }),
     compression({ deleteOriginalAssets: true }),
+    generateVersion(),
   ],
   resolve: {
     alias: {
