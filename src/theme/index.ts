@@ -1,7 +1,7 @@
 import type { LinkProps } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
-import { MuiButton } from "./components/button/mui-button";
-import { MuiIconButton } from "./components/button/mui-icon-button";
+import { MuiButton } from "./components/button/button";
+import { MuiIconButton } from "./components/button/icon-button";
 import { LinkBehavior } from "./components/link-behavior";
 
 export const theme = createTheme({
@@ -45,7 +45,7 @@ export const theme = createTheme({
       fontSize: "1.5rem",
     },
   },
-  spacing: (factor: number) => `${0.25 * factor}rem`,
+  spacing: 4, // (factor: number) => `${0.25 * factor}rem`
   cssVariables: {
     colorSchemeSelector: "class",
     cssVarPrefix: "mt",

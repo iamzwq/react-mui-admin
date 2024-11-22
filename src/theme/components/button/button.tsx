@@ -23,7 +23,7 @@ export const MuiButton: Components<
           boxShadow: "none",
           color: "var(--mt-palette-primary-contrastText)",
           backgroundColor: "var(--mt-palette-primary-main)",
-          opacity: 0.7,
+          opacity: 0.5,
           cursor: "not-allowed",
         },
       },
