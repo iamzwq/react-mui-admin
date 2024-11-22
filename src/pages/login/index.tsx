@@ -1,5 +1,6 @@
 import { Controller, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { Box, Button, Card, Divider, Grid2, Stack, TextField, Typography } from "@mui/material";
 import ReactSvg from "@/assets/react.svg?react";
 import AppHelmet from "@/components/helmet";
@@ -21,15 +22,20 @@ export default function Login() {
       state: "login",
       replace: true,
     });
+    setTimeout(() => {
+      toast.success("Welcome back!", {
+        position: "top-right",
+      });
+    }, 1000);
   });
   return (
     <>
       <AppHelmet />
       <Grid2 container className="h-screen">
-        <Grid2 size={{ xs: 0, md: 5 }} className="flex items-center justify-center bg-black">
+        <Grid2 size={{ xs: 0, md: 5 }} className="bg-black flex-center">
           <ReactSvg className="size-48 animate-spin-slow" />
         </Grid2>
-        <Grid2 size={{ xs: 12, md: 7 }} className="flex items-center justify-center">
+        <Grid2 size={{ xs: 12, md: 7 }} className="flex-center">
           <Card
             elevation={0}
             sx={{ width: 400, p: 8, border: "1px solid var(--mt-palette-divider)" }}

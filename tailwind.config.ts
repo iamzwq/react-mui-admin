@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import plugin from "tailwindcss/plugin";
 
 export default {
   darkMode: "class",
@@ -8,8 +9,17 @@ export default {
       animation: {
         "spin-slow": "spin 3s linear infinite",
       },
-      "flex-center": "flex justify-center items-center",
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addUtilities }) {
+      addUtilities({
+        ".flex-center": {
+          display: "flex",
+          "justify-content": "center",
+          "align-items": "center",
+        },
+      });
+    }),
+  ],
 } satisfies Config;
